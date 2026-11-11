@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WORLDLY - Global Explorer &amp; Atlas</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#ffffff",
+            "error-container": "#ffdad6",
+            "primary-fixed": "#d6e3ff",
+            "on-primary-fixed": "#0d1c32",
+            "surface-variant": "#d3e4fe",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed": "#2a1700",
+            "background": "#f8f9ff",
+            "on-background": "#0b1c30",
+            "on-tertiary": "#ffffff",
+            "secondary": "#006398",
+            "surface-container-low": "#eff4ff",
+            "on-primary-fixed-variant": "#39475f",
+            "on-surface-variant": "#44474d",
+            "primary-fixed-dim": "#b9c7e4",
+            "on-secondary-fixed-variant": "#004b73",
+            "surface-dim": "#cbdbf5",
+            "on-error": "#ffffff",
+            "surface-tint": "#515f78",
+            "tertiary-fixed-dim": "#ffb95f",
+            "on-secondary-fixed": "#001d31",
+            "inverse-on-surface": "#eaf1ff",
+            "on-primary-container": "#76849f",
+            "on-secondary-container": "#00476e",
+            "surface-container-high": "#dce9ff",
+            "outline": "#75777e",
+            "tertiary-fixed": "#ffddb8",
+            "tertiary": "#000000",
+            "inverse-primary": "#b9c7e4",
+            "surface": "#f8f9ff",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#c5c6cd",
+            "surface-container-highest": "#d3e4fe",
+            "inverse-surface": "#213145",
+            "on-tertiary-fixed-variant": "#653e00",
+            "on-tertiary-container": "#b87500",
+            "secondary-fixed": "#cce5ff",
+            "secondary-fixed-dim": "#93ccff",
+            "surface-bright": "#f8f9ff",
+            "on-secondary": "#ffffff",
+            "on-surface": "#0b1c30",
+            "on-error-container": "#93000a",
+            "surface-container": "#e5eeff",
+            "tertiary-container": "#2a1700",
+            "primary-container": "#0d1c32",
+            "secondary-container": "#5bb8fe",
+            "primary": "#000000"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "margin-mobile": "1rem"
+          },
+          "fontFamily": {
+            "stat-metric": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "stat-metric": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.005em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    @keyframes radarPing {
+      0% { transform: scale(0.8); opacity: 0.9; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+    .animate-radar {
+      animation: radarPing 2.2s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+    }
+    .country-node {
+      transition: all 0.25s ease-out;
+      cursor: pointer;
+    }
+    .country-node:hover, .country-node.active-country {
+      fill: #006398 !important;
+      stroke: #5bb8fe !important;
+      stroke-width: 2px;
+      filter: drop-shadow(0 0 6px rgba(0, 99, 152, 0.5));
+    }
+    .scrollbar-none::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-none {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen pb-28 md:pb-12">
+<!-- Top App Bar (Exact JSON Contract) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest shadow-sm border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-gutter-mobile md:px-gutter max-w-7xl mx-auto h-16">
+<!-- Brand & Title Anchor -->
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-secondary-container" data-icon="public">public</span>
+</div>
+<div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-on-surface block leading-tight">WORLDLY</span>
+<span class="font-label-md text-label-md text-on-surface-variant block -mt-0.5">Global Explorer &amp; Atlas</span>
+</div>
+</div>
+<!-- Action Cluster -->
+<div class="flex items-center gap-1.5 sm:gap-2">
+<!-- Random Country Shuffle Dice Button -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-secondary font-label-md text-label-md border border-outline-variant/40 hover:bg-surface-container-high transition-colors active:scale-95 duration-150" id="randomDiceBtn" onclick="shuffleRandomCountry()" title="Random Country Explorer">
+<span class="material-symbols-outlined text-secondary transition-transform duration-500" data-icon="casino" id="diceIcon">casino</span>
+<span class="hidden sm:inline">Random</span>
+</button>
+<!-- Search Quick Toggle -->
+<button aria-label="Search Explorer" class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low active:scale-95 transition-transform duration-150" onclick="document.getElementById('searchInput').focus()">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<!-- Bookmark Header Pill with Live Count -->
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface hover:bg-surface-container-high active:scale-95 transition-all" onclick="toggleBookmarkDrawer()">
+<span class="material-symbols-outlined text-secondary" data-icon="bookmark" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+<span class="font-label-md text-label-md font-bold px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-container" id="headerBookmarkBadge">3</span>
+</button>
+</div>
+</div>
+<!-- Fast Continent Selector Pills (Horizontal Scroll) -->
+<div class="px-gutter-mobile md:px-gutter max-w-7xl mx-auto pb-2.5 overflow-x-auto scrollbar-none flex items-center gap-2">
+<button class="continent-pill whitespace-nowrap px-3.5 py-1 rounded-full font-label-md text-label-md font-semibold bg-primary-container text-on-primary shadow-sm transition-all" onclick="filterContinent(this, 'all')">All Continents</button>
+<button class="continent-pill whitespace-nowrap px-3.5 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-lowest border border-outline-variant/40 hover:bg-surface-container-low transition-all" onclick="filterContinent(this, 'asia')">Asia</button>
+<button class="continent-pill whitespace-nowrap px-3.5 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-lowest border border-outline-variant/40 hover:bg-surface-container-low transition-all" onclick="filterContinent(this, 'americas')">Americas</button>
+<button class="continent-pill whitespace-nowrap px-3.5 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-lowest border border-outline-variant/40 hover:bg-surface-container-low transition-all" onclick="filterContinent(this, 'europe')">Europe</button>
+<button class="continent-pill whitespace-nowrap px-3.5 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-lowest border border-outline-variant/40 hover:bg-surface-container-low transition-all" onclick="filterContinent(this, 'africa')">Africa</button>
+<button class="continent-pill whitespace-nowrap px-3.5 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-lowest border border-outline-variant/40 hover:bg-surface-container-low transition-all" onclick="filterContinent(this, 'oceania')">Oceania</button>
+</div>
+</header>
+<!-- Main Responsive Container -->
+<main class="max-w-7xl mx-auto px-gutter-mobile md:px-gutter pt-4 space-y-6">
+<!-- Section 1: Search & Filter Atlas Bar -->
+<section class="space-y-2">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline pointer-events-none" data-icon="search">search</span>
+<input class="w-full h-12 pl-11 pr-24 rounded-xl bg-surface-container-lowest border border-outline-variant/60 focus:border-secondary focus:ring-2 focus:ring-secondary/20 font-body-md text-body-md text-on-surface placeholder:text-outline transition-all shadow-sm outline-none" id="searchInput" oninput="handleSearch(this.value)" placeholder="Search 195+ countries, capitals, resources..." type="text"/>
+<div class="absolute right-2 flex items-center gap-1">
+<kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-semibold text-outline bg-surface-container rounded border border-outline-variant/40">⌘K</kbd>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface" onclick="document.getElementById('searchInput').value=''; handleSearch('')" title="Clear">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Quick Suggestion Topic Badges -->
+<div class="flex items-center gap-2 overflow-x-auto scrollbar-none py-1">
+<span class="font-label-md text-label-md text-outline flex items-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[16px]" data-icon="insights">insights</span> Quick:
+        </span>
+<button class="shrink-0 px-2.5 py-0.5 rounded-full font-label-md text-label-md bg-amber-500/10 text-amber-800 border border-amber-500/20 hover:bg-amber-500/20 transition-colors" onclick="triggerQuickTag('Coffee')">Coffee producers</button>
+<button class="shrink-0 px-2.5 py-0.5 rounded-full font-label-md text-label-md bg-secondary-fixed/50 text-secondary border border-secondary/20 hover:bg-secondary-fixed transition-colors" onclick="triggerQuickTag('Lithium')">Lithium reserves</button>
+<button class="shrink-0 px-2.5 py-0.5 rounded-full font-label-md text-label-md bg-emerald-500/10 text-emerald-800 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors" onclick="triggerQuickTag('GDP')">Top GDP Nations</button>
+<button class="shrink-0 px-2.5 py-0.5 rounded-full font-label-md text-label-md bg-purple-500/10 text-purple-800 border border-purple-500/20 hover:bg-purple-500/20 transition-colors" onclick="triggerQuickTag('Monarchy')">Ancient Monarchies</button>
+</div>
+</section>
+<!-- Section 2: Interactive SVG Cartographic Vector World Map -->
+<section class="relative rounded-2xl overflow-hidden bg-primary-container border border-outline-variant/30 shadow-lg text-on-primary">
+<!-- Top HUD Header & Live Coordinates -->
+<div class="absolute top-3 left-3 right-3 z-20 flex justify-between items-center pointer-events-none">
+<div class="bg-primary-container/85 backdrop-blur-md px-3 py-1 rounded-lg border border-outline/30 flex items-center gap-2 text-on-primary pointer-events-auto">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span class="font-label-md text-label-md font-bold text-inverse-on-surface tracking-wider">CHART 01 // ORBITAL ATLAS</span>
+<span class="font-label-md text-label-md text-primary-fixed-dim hidden sm:inline" id="coordinateDisplay">35°41'N 139°41'E</span>
+</div>
+<!-- Map Navigation Controls (+ / - / Reset) -->
+<div class="flex items-center gap-1 bg-primary-container/90 backdrop-blur-md p-1 rounded-lg border border-outline/30 pointer-events-auto">
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-primary hover:bg-surface-variant/20 active:scale-95" onclick="zoomMap(1.15)" title="Zoom In">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-primary hover:bg-surface-variant/20 active:scale-95" onclick="zoomMap(0.85)" title="Zoom Out">
+<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
+</button>
+<button class="w-8 h-8 rounded flex items-center justify-center text-on-primary hover:bg-surface-variant/20 active:scale-95" onclick="resetMap()" title="Center Focus">
+<span class="material-symbols-outlined text-[18px]" data-icon="my_location">my_location</span>
+</button>
+</div>
+</div>
+<!-- Vector Oceanic World Map SVG Canvas -->
+<div class="relative w-full h-80 sm:h-96 bg-primary-container overflow-hidden flex items-center justify-center select-none" id="mapViewport">
+<!-- Cartographic Lat/Long Grid Lines -->
+<svg class="absolute inset-0 w-full h-full opacity-15 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#b9c7e4" stroke-dasharray="4,4" x1="0" x2="100%" y1="25%" y2="25%"></line>
+<line stroke="#5bb8fe" stroke-width="1.5" x1="0" x2="100%" y1="50%" y2="50%"></line>
+<line stroke="#b9c7e4" stroke-dasharray="4,4" x1="0" x2="100%" y1="75%" y2="75%"></line>
+<line stroke="#b9c7e4" stroke-dasharray="4,4" x1="25%" x2="25%" y1="0" y2="100%"></line>
+<line stroke="#5bb8fe" stroke-width="1.5" x1="50%" x2="50%" y1="0" y2="100%"></line>
+<line stroke="#b9c7e4" stroke-dasharray="4,4" x1="75%" x2="75%" y1="0" y2="100%"></line>
+</svg>
+<!-- Dynamic Scalable Map Stage -->
+<svg class="w-full h-full max-w-full transition-transform duration-500 ease-out" id="worldSvgMap" viewbox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="50%" cy="50%" id="oceanGlow" r="50%">
+<stop offset="0%" stop-color="#14284b"></stop>
+<stop offset="100%" stop-color="#0a192f"></stop>
+</radialgradient>
+</defs>
+<!-- Ocean Base Rect -->
+<rect fill="url(#oceanGlow)" height="520" width="1000"></rect>
+<!-- Continent Base Silhouette Layers -->
+<!-- North America Base -->
+<path d="M 120 70 L 190 60 L 260 85 L 290 120 L 250 170 L 230 220 L 190 230 L 150 180 L 110 130 Z" fill="#1b2d49" stroke="#253e66" stroke-width="1.2"></path>
+<!-- South America Base -->
+<path d="M 230 250 L 320 280 L 340 340 L 300 440 L 260 460 L 240 370 L 220 300 Z" fill="#1b2d49" stroke="#253e66" stroke-width="1.2"></path>
+<!-- Europe Base -->
+<path d="M 440 80 L 530 75 L 560 110 L 530 160 L 460 170 L 430 130 Z" fill="#1b2d49" stroke="#253e66" stroke-width="1.2"></path>
+<!-- Africa Base -->
+<path d="M 440 185 L 540 185 L 590 260 L 560 360 L 510 400 L 460 350 L 430 250 Z" fill="#1b2d49" stroke="#253e66" stroke-width="1.2"></path>
+<!-- Asia Base -->
+<path d="M 545 70 L 780 65 L 860 120 L 880 200 L 800 240 L 720 280 L 640 240 L 570 170 Z" fill="#1b2d49" stroke="#253e66" stroke-width="1.2"></path>
+<!-- Australia Base -->
+<path d="M 760 330 L 870 325 L 880 400 L 810 425 L 750 380 Z" fill="#1b2d49" stroke="#253e66" stroke-width="1.2"></path>
+<!-- Interactive Highlighted Country Polygons -->
+<!-- Canada -->
+<polygon class="country-node fill-[#2d4368] stroke-[#3e5b8a] stroke-1" data-country="canada" id="country-canada" onclick="selectCountry('canada')" points="130,75 220,65 270,90 250,135 180,140 140,110"></polygon>
+<!-- France -->
+<polygon class="country-node fill-[#354f7a] stroke-[#4f71a8] stroke-1" data-country="france" id="country-france" onclick="selectCountry('france')" points="460,120 485,115 490,135 470,145 455,135"></polygon>
+<!-- Germany -->
+<polygon class="country-node fill-[#354f7a] stroke-[#4f71a8] stroke-1" data-country="germany" id="country-germany" onclick="selectCountry('germany')" points="488,105 510,102 512,125 490,128"></polygon>
+<!-- Norway -->
+<polygon class="country-node fill-[#354f7a] stroke-[#4f71a8] stroke-1" data-country="norway" id="country-norway" onclick="selectCountry('norway')" points="490,65 520,60 515,95 495,95"></polygon>
+<!-- Kenya -->
+<polygon class="country-node fill-[#3b5785] stroke-[#5279b8] stroke-1" data-country="kenya" id="country-kenya" onclick="selectCountry('kenya')" points="545,260 575,265 570,295 545,285"></polygon>
+<!-- Egypt -->
+<polygon class="country-node fill-[#354f7a] stroke-[#4f71a8] stroke-1" data-country="egypt" id="country-egypt" onclick="selectCountry('egypt')" points="515,190 550,192 548,225 518,222"></polygon>
+<!-- Brazil -->
+<polygon class="country-node fill-[#354f7a] stroke-[#4f71a8] stroke-1" data-country="brazil" id="country-brazil" onclick="selectCountry('brazil')" points="255,270 325,285 338,340 300,380 270,350 250,305"></polygon>
+<!-- India -->
+<polygon class="country-node fill-[#354f7a] stroke-[#4f71a8] stroke-1" data-country="india" id="country-india" onclick="selectCountry('india')" points="665,190 710,195 700,250 670,260 655,220"></polygon>
+<!-- Australia -->
+<polygon class="country-node fill-[#354f7a] stroke-[#4f71a8] stroke-1" data-country="australia" id="country-australia" onclick="selectCountry('australia')" points="775,340 855,335 865,390 805,410 765,375"></polygon>
+<!-- Indonesia -->
+<polygon class="country-node fill-[#354f7a] stroke-[#4f71a8] stroke-1" data-country="indonesia" id="country-indonesia" onclick="selectCountry('indonesia')" points="740,285 790,290 820,310 770,312"></polygon>
+<!-- JAPAN (Initially Active) -->
+<g class="cursor-pointer" id="country-japan-group" onclick="selectCountry('japan')">
+<polygon class="country-node active-country fill-[#006398] stroke-[#5bb8fe] stroke-2" data-country="japan" id="country-japan" points="835,138 855,142 858,168 845,178 830,165"></polygon>
+</g>
+<!-- Radar Ping Node Indicator (Positions dynamically) -->
+<g id="radarMarker" transform="translate(845, 155)">
+<circle class="animate-radar opacity-60" fill="#5bb8fe" r="18"></circle>
+<circle fill="#5bb8fe" r="6" stroke="#ffffff" stroke-width="2"></circle>
+</g>
+</svg>
+<!-- Live Floating Country HUD Card on Map -->
+<div class="absolute bottom-3 left-3 right-3 sm:right-auto sm:w-80 bg-surface-container-lowest/95 backdrop-blur-md rounded-xl p-3 border border-outline-variant/40 shadow-xl flex items-center justify-between transition-all duration-300" id="mapPreviewPill">
+<div class="flex items-center gap-3">
+<span class="text-3xl filter drop-shadow" id="previewFlag">🇯🇵</span>
+<div>
+<div class="flex items-center gap-1.5">
+<h4 class="font-title-md text-title-md font-bold text-on-surface" id="previewName">Japan</h4>
+<span class="px-1.5 py-0.2 rounded-full font-label-md text-[10px] bg-secondary-fixed text-on-secondary-fixed font-bold" id="previewTag">Featured</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant" id="previewSub">Capital: Tokyo • East Asia</p>
+</div>
+</div>
+<button class="p-2 rounded-lg bg-primary-container text-on-primary hover:bg-secondary active:scale-95 transition-all shadow-sm" onclick="scrollToDossier()" title="Explore Full Dossier">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_downward">arrow_downward</span>
+</button>
+</div>
+</div>
+<!-- Quick Atlas Map Footer Selector Chips -->
+<div class="bg-surface-container-low/60 px-3 py-2 border-t border-outline-variant/30 flex items-center gap-2 overflow-x-auto scrollbar-none text-on-surface">
+<span class="font-label-md text-label-md text-outline font-semibold shrink-0">Click Pin:</span>
+<button class="map-chip-btn px-2.5 py-1 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md shrink-0 transition-all" onclick="selectCountry('japan')">🇯🇵 Japan</button>
+<button class="map-chip-btn px-2.5 py-1 rounded-lg bg-surface-container-lowest border border-outline-variant/30 hover:bg-surface-container-high font-label-md text-label-md shrink-0 transition-all" onclick="selectCountry('brazil')">🇧🇷 Brazil</button>
+<button class="map-chip-btn px-2.5 py-1 rounded-lg bg-surface-container-lowest border border-outline-variant/30 hover:bg-surface-container-high font-label-md text-label-md shrink-0 transition-all" onclick="selectCountry('kenya')">🇰🇪 Kenya</button>
+<button class="map-chip-btn px-2.5 py-1 rounded-lg bg-surface-container-lowest border border-outline-variant/30 hover:bg-surface-container-high font-label-md text-label-md shrink-0 transition-all" onclick="selectCountry('france')">🇫🇷 France</button>
+<button class="map-chip-btn px-2.5 py-1 rounded-lg bg-surface-container-lowest border border-outline-variant/30 hover:bg-surface-container-high font-label-md text-label-md shrink-0 transition-all" onclick="selectCountry('norway')">🇳🇴 Norway</button>
+<button class="map-chip-btn px-2.5 py-1 rounded-lg bg-surface-container-lowest border border-outline-variant/30 hover:bg-surface-container-high font-label-md text-label-md shrink-0 transition-all" onclick="selectCountry('canada')">🇨🇦 Canada</button>
+<button class="map-chip-btn px-2.5 py-1 rounded-lg bg-surface-container-lowest border border-outline-variant/30 hover:bg-surface-container-high font-label-md text-label-md shrink-0 transition-all" onclick="selectCountry('india')">🇮🇳 India</button>
+<button class="map-chip-btn px-2.5 py-1 rounded-lg bg-surface-container-lowest border border-outline-variant/30 hover:bg-surface-container-high font-label-md text-label-md shrink-0 transition-all" onclick="selectCountry('australia')">🇦🇺 Australia</button>
+</div>
+</section>
+<!-- Section 3: Comprehensive Country Profile Dossier -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm p-4 sm:p-6 space-y-6" id="countryDossierSection">
+<!-- Dossier Header Block -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-outline-variant/30">
+<div class="flex items-start sm:items-center gap-3.5">
+<div class="w-16 h-12 rounded-xl bg-surface-container-low border border-outline-variant/40 flex items-center justify-center text-4xl shadow-inner shrink-0" id="dossierFlagBox">
+            🇯🇵
+          </div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-on-surface" id="dossierTitle">Japan</h2>
+<span class="font-label-lg text-label-lg px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-medium" id="dossierNative">日本</span>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-semibold" id="dossierTag">East Asia</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="dossierSubtitle">
+              Land of the Rising Sun • Capital: <strong class="text-on-surface">Tokyo</strong> • Currency: <strong class="text-on-surface">JPY (¥)</strong>
+</p>
+</div>
+</div>
+<!-- Action / Bookmark Anchor Button -->
+<div class="flex items-center gap-2 self-end sm:self-center">
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container-low border border-outline-variant/40 text-secondary font-label-md text-label-md font-semibold hover:bg-secondary-fixed/50 active:scale-95 transition-all" id="bookmarkToggleBtn" onclick="toggleCurrentCountryBookmark()">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span id="bookmarkToggleText">Saved to Atlas</span>
+</button>
+<button class="p-2 rounded-xl bg-surface-container-low border border-outline-variant/40 text-on-surface hover:bg-surface-container-high active:scale-95 transition-all" onclick="shareCountryCard()" title="Share Country Brief">
+<span class="material-symbols-outlined text-[18px]" data-icon="share">share</span>
+</button>
+</div>
+</div>
+<!-- Quick Stat Metrics Grid (4 Key Data Tokens) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<!-- Metric 1: Population -->
+<div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+<div class="flex items-center justify-between text-outline text-[12px] font-label-md">
+<span>POPULATION</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="group">group</span>
+</div>
+<div class="font-stat-metric text-stat-metric text-on-surface mt-1" id="statPop">124.5M</div>
+<div class="font-label-md text-label-md text-amber-700 flex items-center gap-0.5 mt-0.5" id="statPopDelta">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_down">trending_down</span> -0.4% YoY
+          </div>
+</div>
+<!-- Metric 2: Surface Area -->
+<div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+<div class="flex items-center justify-between text-outline text-[12px] font-label-md">
+<span>TOTAL AREA</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="square_foot">square_foot</span>
+</div>
+<div class="font-stat-metric text-stat-metric text-on-surface mt-1" id="statArea">377,975</div>
+<div class="font-label-md text-label-md text-on-surface-variant mt-0.5">km² (Rank #62)</div>
+</div>
+<!-- Metric 3: Nominal GDP -->
+<div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+<div class="flex items-center justify-between text-outline text-[12px] font-label-md">
+<span>GDP (NOMINAL)</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="payments">payments</span>
+</div>
+<div class="font-stat-metric text-stat-metric text-on-surface mt-1" id="statGdp">$4.21T</div>
+<div class="font-label-md text-label-md text-emerald-800 flex items-center gap-0.5 mt-0.5" id="statGdpRank">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span> Global Rank #4
+          </div>
+</div>
+<!-- Metric 4: Human Development Index -->
+<div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+<div class="flex items-center justify-between text-outline text-[12px] font-label-md">
+<span>HUMAN DEV INDEX</span>
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="military_tech">military_tech</span>
+</div>
+<div class="font-stat-metric text-stat-metric text-on-surface mt-1" id="statHdi">0.925</div>
+<div class="font-label-md text-label-md text-secondary font-semibold mt-0.5">Very High Tier</div>
+</div>
+</div>
+<!-- Interactive Segmented Capsule Tabs -->
+<div class="space-y-4">
+<div class="flex items-center gap-1.5 p-1 bg-surface-container rounded-xl overflow-x-auto scrollbar-none">
+<button class="tab-btn flex-1 min-w-[120px] py-2 px-3 rounded-lg font-label-lg text-label-lg font-semibold bg-surface-container-lowest text-on-surface shadow-sm transition-all text-center" id="tabBtn-economy" onclick="switchTab('economy')">
+            Economy &amp; Trade
+          </button>
+<button class="tab-btn flex-1 min-w-[120px] py-2 px-3 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all text-center" id="tabBtn-resources" onclick="switchTab('resources')">
+            Resources &amp; Agri
+          </button>
+<button class="tab-btn flex-1 min-w-[120px] py-2 px-3 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all text-center" id="tabBtn-geography" onclick="switchTab('geography')">
+            Geography &amp; Nature
+          </button>
+<button class="tab-btn flex-1 min-w-[120px] py-2 px-3 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-all text-center" id="tabBtn-culture" onclick="switchTab('culture')">
+            Culture &amp; Trivia
+          </button>
+</div>
+<!-- Tab Content Panes -->
+<!-- PANE A: Economy & Trade -->
+<div class="tab-pane space-y-4" id="pane-economy">
+<div class="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-low/40 space-y-3">
+<div class="flex justify-between items-center">
+<span class="font-title-md text-title-md text-on-surface font-semibold">GDP Sector Composition</span>
+<span class="font-label-md text-label-md text-outline">Macro Distribution</span>
+</div>
+<!-- Proportional Segment Bar -->
+<div class="h-3.5 w-full bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-secondary" id="barServices" style="width: 69%;" title="Services: 69%"></div>
+<div class="h-full bg-secondary-container" id="barIndustry" style="width: 29%;" title="Industry: 29%"></div>
+<div class="h-full bg-emerald-500" id="barAgri" style="width: 2%;" title="Agriculture: 2%"></div>
+</div>
+<!-- Legends -->
+<div class="flex flex-wrap items-center gap-4 pt-1 font-label-md text-label-md">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="text-on-surface" id="labelServices">Services: <strong>69.1%</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="text-on-surface" id="labelIndustry">Industry: <strong>29.2%</strong></span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+<span class="text-on-surface" id="labelAgri">Agriculture: <strong>1.1%</strong></span>
+</div>
+</div>
+</div>
+<!-- Top Exports & Partners Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-lowest">
+<h5 class="font-title-md text-title-md text-on-surface font-semibold mb-2.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary" data-icon="local_shipping">local_shipping</span>
+                Leading Export Products
+              </h5>
+<div class="flex flex-wrap gap-1.5" id="exportPills">
+<span class="px-2.5 py-1 rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Automobiles &amp; EV tech</span>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Integrated Circuits</span>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Precision Machinery</span>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Robotics &amp; Optical Gear</span>
+</div>
+</div>
+<div class="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-lowest">
+<h5 class="font-title-md text-title-md text-on-surface font-semibold mb-2.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary" data-icon="hub">hub</span>
+                Top Bilateral Partners
+              </h5>
+<div class="space-y-1.5 font-body-sm text-body-sm" id="tradePartnerList">
+<div class="flex justify-between items-center p-1.5 rounded bg-surface-container-low">
+<span>🇺🇸 United States</span>
+<span class="font-semibold text-secondary">19.4% Share</span>
+</div>
+<div class="flex justify-between items-center p-1.5 rounded bg-surface-container-low">
+<span>🇨🇳 China</span>
+<span class="font-semibold text-secondary">18.6% Share</span>
+</div>
+<div class="flex justify-between items-center p-1.5 rounded bg-surface-container-low">
+<span>🇰🇷 South Korea</span>
+<span class="font-semibold text-secondary">6.8% Share</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- PANE B: Resources & Agriculture -->
+<div class="tab-pane hidden space-y-4" id="pane-resources">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-lowest space-y-2">
+<h5 class="font-title-md text-title-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-emerald-700" data-icon="nature">nature</span>
+                Strategic Mineral &amp; Energy Deposits
+              </h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Extracted resources, maritime economic zones, and mineral reserves.</p>
+<div class="flex flex-wrap gap-1.5 pt-1" id="resourcePills">
+<span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-800 font-label-md text-label-md">Deep Sea Rare Earths</span>
+<span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-800 font-label-md text-label-md">Hydroelectric Potential</span>
+<span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-800 font-label-md text-label-md">Timber &amp; Forestry (67%)</span>
+<span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-800 font-label-md text-label-md">Marine Pelagic Fisheries</span>
+</div>
+</div>
+<div class="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-lowest space-y-2">
+<h5 class="font-title-md text-title-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-amber-700" data-icon="agriculture">agriculture</span>
+                Specialized Agricultural Yields
+              </h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Intensive precision agriculture and high-value terroir products.</p>
+<div class="flex flex-wrap gap-1.5 pt-1" id="agriPills">
+<span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-800 font-label-md text-label-md">Short-grain Rice (Koshihikari)</span>
+<span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-800 font-label-md text-label-md">Green Tea (Sencha / Matcha)</span>
+<span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-800 font-label-md text-label-md">Wagyu Artisan Beef</span>
+<span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-800 font-label-md text-label-md">Yuzu &amp; Mikan Citrus</span>
+</div>
+</div>
+</div>
+</div>
+<!-- PANE C: Geography & Nature -->
+<div class="tab-pane hidden space-y-4" id="pane-geography">
+<div class="p-4 rounded-xl border border-outline-variant/30 bg-surface-container-low/40 space-y-3">
+<h5 class="font-title-md text-title-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary" data-icon="landscape">landscape</span>
+              Topography &amp; Biomes
+            </h5>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed" id="geoDesc">
+              Comprising a volcanic archipelago of 6,852 islands across the Pacific Ring of Fire. Mountainous terrain blankets over 73% of the nation, fostering lush temperate rainforests and fast alpine river basins.
+            </p>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2">
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30">
+<span class="font-label-md text-label-md text-outline block">HIGHEST ELEVATION</span>
+<span class="font-title-md text-title-md font-bold text-on-surface" id="geoPeak">Mt. Fuji (3,776 m)</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30">
+<span class="font-label-md text-label-md text-outline block">UNESCO HERITAGE</span>
+<span class="font-title-md text-title-md font-bold text-secondary" id="geoUnesco">25 Sites (20 Cultural)</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 col-span-2 sm:col-span-1">
+<span class="font-label-md text-label-md text-outline block">CLIMATE ZONES</span>
+<span class="font-title-md text-title-md font-bold text-on-surface" id="geoClimate">Subarctic to Subtropical</span>
+</div>
+</div>
+</div>
+</div>
+<!-- PANE D: Culture & Trivia -->
+<div class="tab-pane hidden space-y-3" id="pane-culture">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3" id="triviaCardsContainer">
+<!-- Trivia 1 -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-1.5">
+<span class="w-7 h-7 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold text-sm">1</span>
+<h6 class="font-title-md text-title-md font-semibold text-on-surface">Oldest Continuous Monarchy</h6>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The Imperial House has traced an unbroken succession spanning over 2,600 years from Emperor Jimmu in 660 BCE.</p>
+</div>
+<!-- Trivia 2 -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-1.5">
+<span class="w-7 h-7 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold text-sm">2</span>
+<h6 class="font-title-md text-title-md font-semibold text-on-surface">Shinkansen Precision</h6>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The Tokaido Bullet Train network averages an annual departure delay of less than 24 seconds, including natural earthquake delays.</p>
+</div>
+<!-- Trivia 3 -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-1.5">
+<span class="w-7 h-7 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold text-sm">3</span>
+<h6 class="font-title-md text-title-md font-semibold text-on-surface">Vending Machine Empire</h6>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Boasting the highest density in the world with over 4 million automated dispensers providing hot ramen, fresh eggs, and umbrellas.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Country Comparison Proportional Tool Widget -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/30 p-4 sm:p-6 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-secondary font-bold tracking-wider">ANALYTICS COMPARATOR</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Side-by-Side Demographic Parity</h3>
+</div>
+<div class="flex items-center gap-1.5">
+<select class="rounded-lg bg-surface-container border border-outline-variant/40 font-label-md text-label-md px-2.5 py-1.5 text-on-surface outline-none" id="compareTargetSelect" onchange="updateComparison()">
+<option value="germany">vs 🇩🇪 Germany</option>
+<option value="brazil">vs 🇧🇷 Brazil</option>
+<option value="canada">vs 🇨🇦 Canada</option>
+<option value="kenya">vs 🇰🇪 Kenya</option>
+</select>
+</div>
+</div>
+<!-- Comparative Stat Bars -->
+<div class="space-y-3.5 pt-2">
+<!-- Population Comparison -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">Population: <span class="text-secondary" id="compPopA">124.5M</span> (Selected)</span>
+<span class="text-on-surface-variant font-semibold"><span id="compPopB">84.4M</span> (<span id="compCountryBLabel">Germany</span>)</span>
+</div>
+<div class="h-2.5 w-full bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-secondary rounded-l" id="compPopBarA" style="width: 59%;"></div>
+<div class="h-full bg-secondary-fixed-dim rounded-r" id="compPopBarB" style="width: 41%;"></div>
+</div>
+</div>
+<!-- GDP per Capita Comparison -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">GDP per Capita: <span class="text-secondary" id="compGdpA">$33,800</span></span>
+<span class="text-on-surface-variant font-semibold"><span id="compGdpB">$51,200</span></span>
+</div>
+<div class="h-2.5 w-full bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-secondary rounded-l" id="compGdpBarA" style="width: 40%;"></div>
+<div class="h-full bg-secondary-fixed-dim rounded-r" id="compGdpBarB" style="width: 60%;"></div>
+</div>
+</div>
+<!-- Renewable Energy Matrix -->
+<div class="space-y-1">
+<div class="flex justify-between font-label-md text-label-md">
+<span class="text-on-surface font-semibold">Clean Energy Mix: <span class="text-secondary" id="compEnergyA">22.4%</span></span>
+<span class="text-on-surface-variant font-semibold"><span id="compEnergyB">52.3%</span></span>
+</div>
+<div class="h-2.5 w-full bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-secondary rounded-l" id="compEnergyBarA" style="width: 30%;"></div>
+<div class="h-full bg-secondary-fixed-dim rounded-r" id="compEnergyBarB" style="width: 70%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Daily Geo Quiz Challenge Card -->
+<section class="bg-gradient-to-br from-primary-container to-[#172c4e] text-on-primary rounded-2xl p-5 sm:p-6 shadow-md border border-outline-variant/20 relative overflow-hidden">
+<!-- Ambient Cartographic Watermark -->
+<span class="material-symbols-outlined absolute -right-6 -bottom-6 text-9xl text-white/5 pointer-events-none" data-icon="quiz">quiz</span>
+<div class="relative z-10 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full font-label-md text-label-md bg-secondary text-on-secondary font-bold">DAILY ATLAS QUIZ</span>
+<span class="font-label-md text-label-md text-secondary-container">#Round 412</span>
+</div>
+<div class="flex items-center gap-1 font-label-md text-label-md px-2.5 py-1 rounded-lg bg-white/10 text-white backdrop-blur">
+<span>🔥</span>
+<span class="font-bold">5 Day Streak</span>
+</div>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline-sm text-headline-sm font-bold text-white">Which country reigns as the world's leading exporter of copper?</h4>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim">Mining economics &amp; global raw industrial commodity trade.</p>
+</div>
+<!-- 4 Interactive Option Buttons -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1" id="quizOptionsContainer">
+<button class="quiz-btn text-left p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 font-label-lg text-label-lg transition-all active:scale-98 flex items-center justify-between" onclick="handleQuizAnswer(this, false, 'Australia accounts for massive iron ore, but ranks 5th in copper output.')">
+<span>A) 🇦🇺 Australia</span>
+<span class="material-symbols-outlined opacity-0 text-[18px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</button>
+<button class="quiz-btn text-left p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 font-label-lg text-label-lg transition-all active:scale-98 flex items-center justify-between" onclick="handleQuizAnswer(this, true, 'Correct! Chile commands over 28% of entire global copper output with giants like Escondida.')">
+<span>B) 🇨🇱 Chile</span>
+<span class="material-symbols-outlined opacity-0 text-[18px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</button>
+<button class="quiz-btn text-left p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 font-label-lg text-label-lg transition-all active:scale-98 flex items-center justify-between" onclick="handleQuizAnswer(this, false, 'Peru is currently the world’s second-largest copper producer, trailing closely behind Chile.')">
+<span>C) 🇵🇪 Peru</span>
+<span class="material-symbols-outlined opacity-0 text-[18px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</button>
+<button class="quiz-btn text-left p-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 font-label-lg text-label-lg transition-all active:scale-98 flex items-center justify-between" onclick="handleQuizAnswer(this, false, 'Zambia holds legendary copperbelt reserves in Central Africa, but ranks 8th globally.')">
+<span>D) 🇿🇲 Zambia</span>
+<span class="material-symbols-outlined opacity-0 text-[18px]" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</button>
+</div>
+<!-- Instant Feedback Drawer / Toast -->
+<div class="hidden p-3 rounded-xl bg-secondary-fixed text-on-secondary-fixed font-body-sm text-body-sm flex items-start gap-2.5 transition-all" id="quizFeedbackBox">
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0" data-icon="check_circle" id="quizFeedbackIcon">check_circle</span>
+<div>
+<strong class="block font-title-md text-title-md text-secondary" id="quizFeedbackHeading">Accurate Answer!</strong>
+<span id="quizFeedbackText">Chile commands over 28% of global mine production with the famed Atacama deposits.</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Section 6: Docked Bookmarks Modal Drawer (Triggerable from Header) -->
+<aside class="fixed inset-y-0 right-0 z-50 w-80 sm:w-96 bg-surface-container-lowest shadow-2xl border-l border-outline-variant/30 transform translate-x-full transition-transform duration-300 ease-in-out p-5 flex flex-col justify-between" id="bookmarkDrawer">
+<div class="space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="bookmarks" style="font-variation-settings: 'FILL' 1;">bookmarks</span>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Saved &amp; Highlights</h3>
+</div>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface" onclick="toggleBookmarkDrawer()" title="Close Drawer">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- Saved Country List Items -->
+<div class="space-y-2 overflow-y-auto max-h-[618px]" id="savedCountryList">
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between hover:bg-surface-container cursor-pointer transition-colors" onclick="selectCountry('japan'); toggleBookmarkDrawer();">
+<div class="flex items-center gap-3">
+<span class="text-2xl">🇯🇵</span>
+<div>
+<h5 class="font-title-md text-title-md font-bold text-on-surface">Japan</h5>
+<p class="font-body-sm text-body-sm text-outline">Tokyo • $4.21T GDP</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between hover:bg-surface-container cursor-pointer transition-colors" onclick="selectCountry('brazil'); toggleBookmarkDrawer();">
+<div class="flex items-center gap-3">
+<span class="text-2xl">🇧🇷</span>
+<div>
+<h5 class="font-title-md text-title-md font-bold text-on-surface">Brazil</h5>
+<p class="font-body-sm text-body-sm text-outline">Brasília • 215.3M Pop</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between hover:bg-surface-container cursor-pointer transition-colors" onclick="selectCountry('kenya'); toggleBookmarkDrawer();">
+<div class="flex items-center gap-3">
+<span class="text-2xl">🇰🇪</span>
+<div>
+<h5 class="font-title-md text-title-md font-bold text-on-surface">Kenya</h5>
+<p class="font-body-sm text-body-sm text-outline">Nairobi • 90% Geothermal</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 text-center">
+<button class="w-full py-2.5 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-secondary transition-colors" onclick="exportAtlasNotes()">
+        Export Cartography Study Notes (.JSON)
+      </button>
+</div>
+</aside>
+<!-- Overlay Scrim for Drawer -->
+<div class="fixed inset-0 bg-[#0A192F]/50 backdrop-blur-sm z-40 hidden transition-opacity" id="drawerBackdrop" onclick="toggleBookmarkDrawer()"></div>
+<!-- Bottom Navigation Bar (Exact JSON Contract) -->
+<!-- On mobile: docked fixed bottom-0 md:hidden; Active: 'Explore' -->
+<nav class="fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-gutter-mobile py-2 bg-surface-container-lowest shadow-md md:hidden">
+<!-- Tab 1: Explore (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-xl px-3 py-1.5 transition-all" onclick="setNavTab(this, 'explore')">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="font-label-md text-label-md font-semibold mt-0.5">Explore</span>
+</button>
+<!-- Tab 2: Compare -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-all" onclick="setNavTab(this, 'compare')">
+<span class="material-symbols-outlined" data-icon="compare_arrows">compare_arrows</span>
+<span class="font-label-md text-label-md mt-0.5">Compare</span>
+</button>
+<!-- Tab 3: Quiz Arena -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-all" onclick="setNavTab(this, 'quiz')">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span class="font-label-md text-label-md mt-0.5">Quiz Arena</span>
+</button>
+<!-- Tab 4: Bookmarks -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-all" onclick="toggleBookmarkDrawer()">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-label-md text-label-md mt-0.5">Bookmarks</span>
+</button>
+</nav>
+<!-- Toast Notification -->
+<div class="fixed bottom-20 left-1/2 transform -translate-x-1/2 z-50 bg-primary-container text-on-primary px-4 py-2 rounded-xl shadow-xl font-label-md text-label-md flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300" id="toastNotification">
+<span class="material-symbols-outlined text-secondary-container text-[18px]" data-icon="info">info</span>
+<span id="toastMsg">Atlas updated</span>
+</div>
+<!-- Interactive Atlas Controller Script -->
+<script>
+    // Atlas Country Database Records
+    const countryDatabase = {
+      japan: {
+        id: "japan",
+        name: "Japan",
+        nativeName: "日本",
+        region: "East Asia",
+        flag: "🇯🇵",
+        capital: "Tokyo",
+        currency: "JPY (¥)",
+        subtitle: "Land of the Rising Sun • Archipelago of 6,852 islands",
+        coordinates: "35°41'N 139°41'E",
+        radarCoords: { x: 845, y: 155 },
+        population: "124.5M",
+        popDelta: "-0.4% YoY",
+        area: "377,975",
+        gdp: "$4.21T",
+        gdpRank: "#4 Global",
+        hdi: "0.925 (Very High)",
+        economy: {
+          services: 69,
+          industry: 29,
+          agriculture: 2,
+          exports: ["Automobiles & EV tech", "Integrated Circuits", "Precision Machinery", "Robotics & Optical Gear"],
+          partners: [
+            { name: "🇺🇸 United States", share: "19.4% Share" },
+            { name: "🇨🇳 China", share: "18.6% Share" },
+            { name: "🇰🇷 South Korea", share: "6.8% Share" }
+          ]
+        },
+        resources: [
+          "Deep Sea Rare Earths", "Hydroelectric Potential", "Timber & Forestry (67%)", "Marine Pelagic Fisheries"
+        ],
+        agriculture: [
+          "Short-grain Rice (Koshihikari)", "Green Tea (Sencha / Matcha)", "Wagyu Artisan Beef", "Yuzu & Mikan Citrus"
+        ],
+        geography: {
+          desc: "Comprising a volcanic archipelago across the Pacific Ring of Fire. Mountainous terrain covers over 73% of the landmass, fostering dense temperate forests, active thermal onsen zones, and rapid alpine rivers.",
+          peak: "Mt. Fuji (3,776 m)",
+          unesco: "25 Sites (20 Cultural)",
+          climate: "Subarctic to Subtropical"
+        },
+        trivia: [
+          { title: "Oldest Continuous Monarchy", text: "The Imperial House traces succession over 2,600 years to Emperor Jimmu in 660 BCE." },
+          { title: "Shinkansen Precision", text: "Tokaido Bullet Train network averages an annual departure variance of under 24 seconds." },
+          { title: "Vending Machine Capital", text: "Over 4 million automated kiosks offer hot green tea, umami dashi, and emergency rain gear." }
+        ],
+        comparisons: {
+          popRaw: 124.5,
+          gdpCap: "$33,800",
+          gdpCapRaw: 33800,
+          cleanEnergy: "22.4%",
+          cleanEnergyRaw: 22.4
+        }
+      },
+      brazil: {
+        id: "brazil",
+        name: "Brazil",
+        nativeName: "Brasil",
+        region: "South America",
+        flag: "🇧🇷",
+        capital: "Brasília",
+        currency: "BRL (R$)",
+        subtitle: "Continental Giant • Home to the Amazon Basin",
+        coordinates: "15°47'S 47°52'W",
+        radarCoords: { x: 295, y: 320 },
+        population: "215.3M",
+        popDelta: "+0.5% YoY",
+        area: "8,515,767",
+        gdp: "$2.17T",
+        gdpRank: "#9 Global",
+        hdi: "0.760 (High)",
+        economy: {
+          services: 63,
+          industry: 26,
+          agriculture: 11,
+          exports: ["Soybeans & Meal", "Crude Petroleum", "Iron Ore Agglomerates", "Raw Sugar & Poultry"],
+          partners: [
+            { name: "🇨🇳 China", share: "29.8% Share" },
+            { name: "🇺🇸 United States", share: "11.2% Share" },
+            { name: "🇦🇷 Argentina", share: "4.8% Share" }
+          ]
+        },
+        resources: [
+          "Iron Ore (Carajás)", "Biofuel Ethanol", "Niobium (90% World Share)", "Bauxite & Hydropower"
+        ],
+        agriculture: [
+          "Coffee Arabica (World #1)", "Soybeans (World #1)", "Sugarcane & Ethanol", "Citrus & Beef"
+        ],
+        geography: {
+          desc: "Dominating South America with the immense Amazon River drainage basin, Cerrado tropical savannas, and the biodiversity-rich Atlantic Forest corridor.",
+          peak: "Pico da Neblina (2,995 m)",
+          unesco: "23 Sites (7 Natural)",
+          climate: "Equatorial & Tropical Wet"
+        },
+        trivia: [
+          { title: "Biodiversity Sanctuary", text: "Shelters roughly 20% of the entire planet's known biological animal and plant species." },
+          { title: "Aviation Trailblazer", text: "Alberto Santos-Dumont piloted the first public unassisted powered flight in Paris in 1906." },
+          { title: "Green Megagrid", text: "Over 80% of Brazilian electricity comes from renewable hydro and wind energy." }
+        ],
+        comparisons: {
+          popRaw: 215.3,
+          gdpCap: "$10,100",
+          gdpCapRaw: 10100,
+          cleanEnergy: "84.2%",
+          cleanEnergyRaw: 84.2
+        }
+      },
+      kenya: {
+        id: "kenya",
+        name: "Kenya",
+        nativeName: "Kenya",
+        region: "East Africa",
+        flag: "🇰🇪",
+        capital: "Nairobi",
+        currency: "KES (KSh)",
+        subtitle: "Cradle of Humanity • East Africa Economic Powerhouse",
+        coordinates: "1°17'S 36°49'E",
+        radarCoords: { x: 560, y: 275 },
+        population: "54.0M",
+        popDelta: "+1.9% YoY",
+        area: "580,367",
+        gdp: "$113.4B",
+        gdpRank: "#61 Global",
+        hdi: "0.601 (Medium)",
+        economy: {
+          services: 55,
+          industry: 18,
+          agriculture: 27,
+          exports: ["Black Cut Tea", "Cut Horticultural Flowers", "Refined Petroleum", "Titanium Ores"],
+          partners: [
+            { name: "🇺🇬 Uganda", share: "11.1% Share" },
+            { name: "🇳🇱 Netherlands", share: "8.5% Share" },
+            { name: "🇺🇸 United States", share: "7.9% Share" }
+          ]
+        },
+        resources: [
+          "Olkaria Geothermal Vents", "Titanium Sands", "Soda Ash (Lake Magadi)", "Wind Energy (Lake Turkana)"
+        ],
+        agriculture: [
+          "Highland Black Tea", "Cut Roses & Carnations", "Arabica Specialty Coffee", "Avocados & Mangoes"
+        ],
+        geography: {
+          desc: "Bisected by the Great Rift Valley, with savannah plains, high volcanic massifs, and the turquoise waters of the Swahili Coast Indian Ocean.",
+          peak: "Mount Kenya (5,199 m)",
+          unesco: "7 Sites (4 Cultural)",
+          climate: "Tropical Savannah & Highland"
+        },
+        trivia: [
+          { title: "Mobile Money Pioneer", text: "Invented M-Pesa in 2007, now driving over 50% of Kenyan GDP through cellular transactions." },
+          { title: "90% Clean Grid", text: "Ranks among global leaders in geothermal harnessing, powering the nation almost entirely with renewables." },
+          { title: "Great Wildebeest Migration", text: "Hosts the largest mammal migration on Earth across the Maasai Mara ecosystem." }
+        ],
+        comparisons: {
+          popRaw: 54.0,
+          gdpCap: "$2,100",
+          gdpCapRaw: 2100,
+          cleanEnergy: "91.0%",
+          cleanEnergyRaw: 91.0
+        }
+      },
+      norway: {
+        id: "norway",
+        name: "Norway",
+        nativeName: "Norge",
+        region: "Northern Europe",
+        flag: "🇳🇴",
+        capital: "Oslo",
+        currency: "NOK (kr)",
+        subtitle: "Kingdom of the Fjords • Sovereign Wealth Pioneer",
+        coordinates: "59°54'N 10°45'E",
+        radarCoords: { x: 505, y: 80 },
+        population: "5.5M",
+        popDelta: "+0.8% YoY",
+        area: "385,207",
+        gdp: "$546B",
+        gdpRank: "#23 Global",
+        hdi: "0.966 (World #2)",
+        economy: {
+          services: 58,
+          industry: 40,
+          agriculture: 2,
+          exports: ["North Sea Natural Gas", "Crude Oil", "Farmed Atlantic Salmon", "Aluminum & Alloys"],
+          partners: [
+            { name: "🇩🇪 Germany", share: "20.1% Share" },
+            { name: "🇬🇧 United Kingdom", share: "17.4% Share" },
+            { name: "🇳🇱 Netherlands", share: "10.8% Share" }
+          ]
+        },
+        resources: [
+          "North Sea Petroleum", "Steep Hydropower Valleys", "Titanium & Iron Deposits", "Marine Fisheries"
+        ],
+        agriculture: [
+          "Farmed Atlantic Salmon", "Dairy Cattle", "Cold-hardy Barley & Oats", "Nordic Berries"
+        ],
+        geography: {
+          desc: "Iconic glaciated coastline with over 1,190 deep sea fjords, coastal archipelagos, and the Arctic tundra of Svalbard.",
+          peak: "Galdhøpiggen (2,469 m)",
+          unesco: "8 Sites (7 Cultural)",
+          climate: "Subpolar Oceanic"
+        },
+        trivia: [
+          { title: "Largest Wealth Fund", text: "The Government Pension Fund Global owns nearly 1.5% of all publicly listed global companies." },
+          { title: "EV Hegemony", text: "Over 82% of all newly registered automobiles in Norway are 100% battery electric." },
+          { title: "Fjord Geography", text: "Its jagged coastline extends 100,915 km when including every fjord, bay, and island shore." }
+        ],
+        comparisons: {
+          popRaw: 5.5,
+          gdpCap: "$99,300",
+          gdpCapRaw: 99300,
+          cleanEnergy: "98.5%",
+          cleanEnergyRaw: 98.5
+        }
+      },
+      france: {
+        id: "france",
+        name: "France",
+        nativeName: "France",
+        region: "Western Europe",
+        flag: "🇫🇷",
+        capital: "Paris",
+        currency: "EUR (€)",
+        subtitle: "Hexagone • Hub of Culture, Aerospace & Science",
+        coordinates: "48°51'N 2°21'E",
+        radarCoords: { x: 470, y: 130 },
+        population: "68.2M",
+        popDelta: "+0.3% YoY",
+        area: "643,801",
+        gdp: "$3.05T",
+        gdpRank: "#7 Global",
+        hdi: "0.910 (Very High)",
+        economy: {
+          services: 79,
+          industry: 19,
+          agriculture: 2,
+          exports: ["Airbus Aircraft & Spaceware", "Fine Wines & Spirits", "Pharmaceuticals", "Cosmetics & Luxury"],
+          partners: [
+            { name: "🇩🇪 Germany", share: "14.2% Share" },
+            { name: "🇮🇹 Italy", share: "8.6% Share" },
+            { name: "🇺🇸 United States", share: "7.9% Share" }
+          ]
+        },
+        resources: [
+          "Nuclear Power Technology", "Arable Grain Farmland", "Potash & Bauxite", "Hydroelectric Alps"
+        ],
+        agriculture: [
+          "Bordeaux & Champagne Wines", "Soft Wheat", "Dairy Cheeses (1,000+ AOC)", "Sugar Beets"
+        ],
+        geography: {
+          desc: "Balanced maritime hexagon bordered by the Atlantic, English Channel, Pyrenees, Alps, and the Mediterranean Sea.",
+          peak: "Mont Blanc (4,809 m)",
+          unesco: "52 Sites",
+          climate: "Temperate Oceanic to Mediterranean"
+        },
+        trivia: [
+          { title: "Most Time Zones", text: "Due to overseas territories in the Caribbean, Indian, and Pacific oceans, France spans 12 time zones." },
+          { title: "Nuclear Baseload", text: "Generates over 68% of domestic electricity via advanced civil nuclear power generation." },
+          { title: "Tourism Champion", text: "Routinely ranks as the world's most visited country with over 89 million international arrivals." }
+        ],
+        comparisons: {
+          popRaw: 68.2,
+          gdpCap: "$44,700",
+          gdpCapRaw: 44700,
+          cleanEnergy: "69.0%",
+          cleanEnergyRaw: 69.0
+        }
+      },
+      canada: {
+        id: "canada",
+        name: "Canada",
+        nativeName: "Canada",
+        region: "North America",
+        flag: "🇨🇦",
+        capital: "Ottawa",
+        currency: "CAD ($)",
+        subtitle: "Great White North • Second-largest Nation by Area",
+        coordinates: "45°25'N 75°42'W",
+        radarCoords: { x: 200, y: 100 },
+        population: "40.1M",
+        popDelta: "+2.9% YoY",
+        area: "9,984,670",
+        gdp: "$2.14T",
+        gdpRank: "#10 Global",
+        hdi: "0.936 (Very High)",
+        economy: {
+          services: 70,
+          industry: 28,
+          agriculture: 2,
+          exports: ["Crude Bitumen & Oil", "Automotive Assemblies", "Gold & Critical Minerals", "Softwood Lumber"],
+          partners: [
+            { name: "🇺🇸 United States", share: "76.8% Share" },
+            { name: "🇨🇳 China", share: "4.1% Share" },
+            { name: "🇬🇧 United Kingdom", share: "3.2% Share" }
+          ]
+        },
+        resources: [
+          "Athabasca Oil Sands", "Freshwater Lakes (20% of Global)", "Potash & Uranium", "Nickel & Lithium"
+        ],
+        agriculture: [
+          "Canola Oil & Seed", "Durum Wheat", "Maple Syrup (70% World Share)", "Pulse Crops & Lentils"
+        ],
+        geography: {
+          desc: "Vast boreal biomes and tundra, framed by the Rocky Mountains, Laurentian Shield, and three ocean coastlines.",
+          peak: "Mount Logan (5,959 m)",
+          unesco: "22 Sites",
+          climate: "Subarctic, Boreal, and Marine"
+        },
+        trivia: [
+          { title: "Lake Monarchy", text: "Canada contains more natural lakes than all the rest of the world's nations combined." },
+          { title: "Longest Coastline", text: "Measures 243,042 kilometers of shoreline along the Pacific, Atlantic, and Arctic." },
+          { title: "Space Arm Innovation", text: "Engineered Canadarm and Canadarm2 for NASA shuttles and the International Space Station." }
+        ],
+        comparisons: {
+          popRaw: 40.1,
+          gdpCap: "$53,400",
+          gdpCapRaw: 53400,
+          cleanEnergy: "82.5%",
+          cleanEnergyRaw: 82.5
+        }
+      },
+      india: {
+        id: "india",
+        name: "India",
+        nativeName: "भारत",
+        region: "South Asia",
+        flag: "🇮🇳",
+        capital: "New Delhi",
+        currency: "INR (₹)",
+        subtitle: "World's Most Populous Democracy • Subcontinental Atlas",
+        coordinates: "28°36'N 77°12'E",
+        radarCoords: { x: 680, y: 220 },
+        population: "1,428.6M",
+        popDelta: "+0.8% YoY",
+        area: "3,287,263",
+        gdp: "$3.73T",
+        gdpRank: "#5 Global",
+        hdi: "0.644 (Medium)",
+        economy: {
+          services: 54,
+          industry: 28,
+          agriculture: 18,
+          exports: ["Refined Petroleum", "Software IT Services", "Pharmaceutical Formulations", "Cut Diamonds"],
+          partners: [
+            { name: "🇺🇸 United States", share: "17.7% Share" },
+            { name: "🇦🇪 UAE", share: "8.3% Share" },
+            { name: "🇳🇱 Netherlands", share: "4.8% Share" }
+          ]
+        },
+        resources: [
+          "Bhadla Solar Mega-Park", "Thorium Monazite Sands", "Coal Reserves", "Iron Ore Deposits"
+        ],
+        agriculture: [
+          "Basmati Rice", "Spices (Cardamom, Turmeric)", "Sugarcane", "Dairy Milk (World #1)"
+        ],
+        geography: {
+          desc: "Shielded in the north by the towering Himalayas, flowing south across fertile Indo-Gangetic river plains to the tropical Deccan Peninsula.",
+          peak: "Kangchenjunga (8,586 m)",
+          unesco: "42 Sites",
+          climate: "Tropical Monsoon & Arid"
+        },
+        trivia: [
+          { title: "Voter Scale", text: "Over 968 million eligible registered citizens vote using electronic voting machines." },
+          { title: "Lunar South Pole", text: "Became the first nation to successfully land a lunar craft near the Moon's South Pole in 2023." },
+          { title: "Number Zero", text: "Mathematician Brahmagupta formalized the concept and numeral zero as a number in 628 CE." }
+        ],
+        comparisons: {
+          popRaw: 1428.6,
+          gdpCap: "$2,610",
+          gdpCapRaw: 2610,
+          cleanEnergy: "42.0%",
+          cleanEnergyRaw: 42.0
+        }
+      },
+      australia: {
+        id: "australia",
+        name: "Australia",
+        nativeName: "Australia",
+        region: "Oceania",
+        flag: "🇦🇺",
+        capital: "Canberra",
+        currency: "AUD ($)",
+        subtitle: "Island Continent • Ancient Outbacks & Reefs",
+        coordinates: "35°18'S 149°07'E",
+        radarCoords: { x: 820, y: 375 },
+        population: "26.5M",
+        popDelta: "+2.4% YoY",
+        area: "7,692,024",
+        gdp: "$1.71T",
+        gdpRank: "#13 Global",
+        hdi: "0.946 (Very High)",
+        economy: {
+          services: 71,
+          industry: 26,
+          agriculture: 3,
+          exports: ["Iron Ore Fines", "Liquefied Natural Gas", "Metallurgical Coal", "Gold Ingots & Beef"],
+          partners: [
+            { name: "🇨🇳 China", share: "34.2% Share" },
+            { name: "🇯🇵 Japan", share: "14.5% Share" },
+            { name: "🇰🇷 South Korea", share: "6.8% Share" }
+          ]
+        },
+        resources: [
+          "Pilbara Iron Ore", "Lithium Spodumene (World #1)", "Uranium Reserves", "Rooftop Solar Density"
+        ],
+        agriculture: [
+          "Merino Sheep Wool", "Pasture-fed Beef", "Wheat & Barley", "Barossa Valley Wines"
+        ],
+        geography: {
+          desc: "The lowest, flattest, and driest inhabited continent, fringed by the 2,300 km Great Barrier Reef system.",
+          peak: "Mount Kosciuszko (2,228 m)",
+          unesco: "20 Sites (12 Natural)",
+          climate: "Arid Desert to Temperate"
+        },
+        trivia: [
+          { title: "Great Barrier Reef", text: "The largest single structure made by living organisms, clearly visible from Earth orbit." },
+          { title: "Marsupial Sanctuary", text: "Home to over 80% of unique mammals and flowering plants found nowhere else on the globe." },
+          { title: "First Nations Heritage", text: "Indigenous Australian cultures represent the world's oldest continuous living cultures (65,000+ yrs)." }
+        ],
+        comparisons: {
+          popRaw: 26.5,
+          gdpCap: "$64,500",
+          gdpCapRaw: 64500,
+          cleanEnergy: "35.9%",
+          cleanEnergyRaw: 35.9
+        }
+      }
+    };
+
+    // State Variables
+    let currentCountryKey = "japan";
+    let savedCountryKeys = new Set(["japan", "brazil", "kenya"]);
+    let currentMapZoom = 1;
+
+    // Switch Selected Country
+    function selectCountry(key) {
+      const data = countryDatabase[key];
+      if (!data) return;
+
+      currentCountryKey = key;
+
+      // Update Map Highlights
+      document.querySelectorAll('.country-node').forEach(el => {
+        el.classList.remove('active-country', 'fill-[#006398]', 'stroke-[#5bb8fe]', 'stroke-2');
+        el.classList.add('fill-[#354f7a]', 'stroke-[#4f71a8]');
+      });
+
+      const selectedNode = document.getElementById(`country-${key}`);
+      if (selectedNode) {
+        selectedNode.classList.add('active-country', 'fill-[#006398]', 'stroke-[#5bb8fe]', 'stroke-2');
+      }
+
+      // Update Radar Pin Coordinates
+      const radar = document.getElementById('radarMarker');
+      if (radar && data.radarCoords) {
+        radar.setAttribute('transform', `translate(${data.radarCoords.x}, ${data.radarCoords.y})`);
+      }
+
+      // Update Map Header Coordinates
+      const coordDisp = document.getElementById('coordinateDisplay');
+      if (coordDisp) coordDisp.textContent = data.coordinates;
+
+      // Update Live Map Preview Pill
+      document.getElementById('previewFlag').textContent = data.flag;
+      document.getElementById('previewName').textContent = data.name;
+      document.getElementById('previewSub').textContent = `Capital: ${data.capital} • ${data.region}`;
+
+      // Update Dossier Header Card
+      document.getElementById('dossierFlagBox').textContent = data.flag;
+      document.getElementById('dossierTitle').textContent = data.name;
+      document.getElementById('dossierNative').textContent = data.nativeName;
+      document.getElementById('dossierTag').textContent = data.region;
+      document.getElementById('dossierSubtitle').innerHTML = 
+        `${data.subtitle} • Capital: <strong class="text-on-surface">${data.capital}</strong> • Currency: <strong class="text-on-surface">${data.currency}</strong>`;
+
+      // Update Stat Metrics Grid
+      document.getElementById('statPop').textContent = data.population;
+      document.getElementById('statPopDelta').innerHTML = 
+        `<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span> ${data.popDelta}`;
+      document.getElementById('statArea').textContent = data.area;
+      document.getElementById('statGdp').textContent = data.gdp;
+      document.getElementById('statGdpRank').innerHTML = 
+        `<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span> ${data.gdpRank}`;
+      document.getElementById('statHdi').textContent = data.hdi;
+
+      // Update Economy Tab
+      const econ = data.economy;
+      document.getElementById('barServices').style.width = `${econ.services}%`;
+      document.getElementById('barIndustry').style.width = `${econ.industry}%`;
+      document.getElementById('barAgri').style.width = `${econ.agriculture}%`;
+      document.getElementById('labelServices').innerHTML = `Services: <strong>${econ.services}%</strong>`;
+      document.getElementById('labelIndustry').innerHTML = `Industry: <strong>${econ.industry}%</strong>`;
+      document.getElementById('labelAgri').innerHTML = `Agriculture: <strong>${econ.agriculture}%</strong>`;
+
+      // Export Pills
+      const exportBox = document.getElementById('exportPills');
+      exportBox.innerHTML = econ.exports.map(exp => 
+        `<span class="px-2.5 py-1 rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">${exp}</span>`
+      ).join('');
+
+      // Trade Partners
+      const partnerBox = document.getElementById('tradePartnerList');
+      partnerBox.innerHTML = econ.partners.map(p => 
+        `<div class="flex justify-between items-center p-1.5 rounded bg-surface-container-low">
+          <span>${p.name}</span>
+          <span class="font-semibold text-secondary">${p.share}</span>
+        </div>`
+      ).join('');
+
+      // Resources & Agri
+      document.getElementById('resourcePills').innerHTML = data.resources.map(r =>
+        `<span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-800 font-label-md text-label-md">${r}</span>`
+      ).join('');
+
+      document.getElementById('agriPills').innerHTML = data.agriculture.map(a =>
+        `<span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-800 font-label-md text-label-md">${a}</span>`
+      ).join('');
+
+      // Geography & Nature
+      document.getElementById('geoDesc').textContent = data.geography.desc;
+      document.getElementById('geoPeak').textContent = data.geography.peak;
+      document.getElementById('geoUnesco').textContent = data.geography.unesco;
+      document.getElementById('geoClimate').textContent = data.geography.climate;
+
+      // Trivia Cards
+      document.getElementById('triviaCardsContainer').innerHTML = data.trivia.map((t, idx) => `
+        <div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-1.5">
+          <span class="w-7 h-7 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold text-sm">${idx + 1}</span>
+          <h6 class="font-title-md text-title-md font-semibold text-on-surface">${t.title}</h6>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">${t.text}</p>
+        </div>
+      `).join('');
+
+      // Update Bookmark Button State
+      updateBookmarkButtonUI();
+
+      // Update Comparative Stats Widget
+      updateComparison();
+    }
+
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+      });
+
+      const activePane = document.getElementById(`pane-${tabId}`);
+      const activeBtn = document.getElementById(`tabBtn-${tabId}`);
+      if (activePane) activePane.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+    }
+
+    // Shuffle Random Country with Animated Dice
+    function shuffleRandomCountry() {
+      const keys = Object.keys(countryDatabase);
+      const filtered = keys.filter(k => k !== currentCountryKey);
+      const randomKey = filtered[Math.floor(Math.random() * filtered.length)];
+
+      const dice = document.getElementById('diceIcon');
+      if (dice) dice.classList.add('rotate-180');
+      setTimeout(() => {
+        if (dice) dice.classList.remove('rotate-180');
+        selectCountry(randomKey);
+        showToast(`Navigated to ${countryDatabase[randomKey].name}!`);
+      }, 300);
+    }
+
+    // Map Zoom & Pan Control
+    function zoomMap(factor) {
+      currentMapZoom = Math.min(Math.max(0.7, currentMapZoom * factor), 2.2);
+      const svg = document.getElementById('worldSvgMap');
+      if (svg) svg.style.transform = `scale(${currentMapZoom})`;
+    }
+
+    function resetMap() {
+      currentMapZoom = 1;
+      const svg = document.getElementById('worldSvgMap');
+      if (svg) svg.style.transform = `scale(1)`;
+      showToast("Atlas view recentered");
+    }
+
+    // Scroll Smoothly to Dossier
+    function scrollToDossier() {
+      const target = document.getElementById('countryDossierSection');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Search and Suggestion System
+    function handleSearch(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) return;
+
+      for (const [key, country] of Object.entries(countryDatabase)) {
+        if (
+          country.name.toLowerCase().includes(q) ||
+          country.capital.toLowerCase().includes(q) ||
+          country.region.toLowerCase().includes(q) ||
+          country.economy.exports.some(e => e.toLowerCase().includes(q))
+        ) {
+          selectCountry(key);
+          break;
+        }
+      }
+    }
+
+    function triggerQuickTag(tag) {
+      document.getElementById('searchInput').value = tag;
+      if (tag === 'Coffee') selectCountry('brazil');
+      else if (tag === 'Lithium') selectCountry('australia');
+      else if (tag === 'GDP') selectCountry('japan');
+      else if (tag === 'Monarchy') selectCountry('japan');
+      showToast(`Filter applied: "${tag}"`);
+    }
+
+    // Continent Pill Filter Logic
+    function filterContinent(btn, continent) {
+      document.querySelectorAll('.continent-pill').forEach(b => {
+        b.className = 'continent-pill whitespace-nowrap px-3.5 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-lowest border border-outline-variant/40 hover:bg-surface-container-low transition-all';
+      });
+      btn.className = 'continent-pill whitespace-nowrap px-3.5 py-1 rounded-full font-label-md text-label-md font-semibold bg-primary-container text-on-primary shadow-sm transition-all';
+
+      if (continent === 'asia') selectCountry('japan');
+      else if (continent === 'americas') selectCountry('brazil');
+      else if (continent === 'africa') selectCountry('kenya');
+      else if (continent === 'europe') selectCountry('norway');
+      else if (continent === 'oceania') selectCountry('australia');
+      else selectCountry('japan');
+    }
+
+    // Comparison Tool Widget Logic
+    function updateComparison() {
+      const targetKey = document.getElementById('compareTargetSelect').value;
+      const targetData = countryDatabase[targetKey];
+      const curData = countryDatabase[currentCountryKey];
+
+      if (!targetData || !curData) return;
+
+      document.getElementById('compCountryBLabel').textContent = targetData.name;
+
+      // Pop
+      document.getElementById('compPopA').textContent = curData.population;
+      document.getElementById('compPopB').textContent = targetData.population;
+      const totalPop = curData.comparisons.popRaw + targetData.comparisons.popRaw;
+      const shareA = Math.round((curData.comparisons.popRaw / totalPop) * 100);
+      document.getElementById('compPopBarA').style.width = `${shareA}%`;
+      document.getElementById('compPopBarB').style.width = `${100 - shareA}%`;
+
+      // GDP per Cap
+      document.getElementById('compGdpA').textContent = curData.comparisons.gdpCap;
+      document.getElementById('compGdpB').textContent = targetData.comparisons.gdpCap;
+      const totalGdpCap = curData.comparisons.gdpCapRaw + targetData.comparisons.gdpCapRaw;
+      const shareGdpA = Math.round((curData.comparisons.gdpCapRaw / totalGdpCap) * 100);
+      document.getElementById('compGdpBarA').style.width = `${shareGdpA}%`;
+      document.getElementById('compGdpBarB').style.width = `${100 - shareGdpA}%`;
+
+      // Energy
+      document.getElementById('compEnergyA').textContent = curData.comparisons.cleanEnergy;
+      document.getElementById('compEnergyB').textContent = targetData.comparisons.cleanEnergy;
+      const totalEnergy = curData.comparisons.cleanEnergyRaw + targetData.comparisons.cleanEnergyRaw;
+      const shareEnergyA = Math.round((curData.comparisons.cleanEnergyRaw / totalEnergy) * 100);
+      document.getElementById('compEnergyBarA').style.width = `${shareEnergyA}%`;
+      document.getElementById('compEnergyBarB').style.width = `${100 - shareEnergyA}%`;
+    }
+
+    // Bookmark Management
+    function toggleCurrentCountryBookmark() {
+      if (savedCountryKeys.has(currentCountryKey)) {
+        savedCountryKeys.delete(currentCountryKey);
+        showToast(`Removed ${countryDatabase[currentCountryKey].name} from Bookmarks`);
+      } else {
+        savedCountryKeys.add(currentCountryKey);
+        showToast(`Saved ${countryDatabase[currentCountryKey].name} to Atlas Bookmarks`);
+      }
+      updateBookmarkButtonUI();
+      updateBookmarkHeaderBadge();
+    }
+
+    function updateBookmarkButtonUI() {
+      const isSaved = savedCountryKeys.has(currentCountryKey);
+      const text = document.getElementById('bookmarkToggleText');
+      const btn = document.getElementById('bookmarkToggleBtn');
+      if (isSaved) {
+        text.textContent = "Saved to Atlas";
+        btn.classList.add('bg-secondary-fixed/50', 'text-secondary');
+      } else {
+        text.textContent = "Add to Atlas";
+        btn.classList.remove('bg-secondary-fixed/50', 'text-secondary');
+      }
+    }
+
+    function updateBookmarkHeaderBadge() {
+      const badge = document.getElementById('headerBookmarkBadge');
+      if (badge) badge.textContent = savedCountryKeys.size;
+    }
+
+    function toggleBookmarkDrawer() {
+      const drawer = document.getElementById('bookmarkDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const isOpen = !drawer.classList.contains('translate-x-full');
+
+      if (isOpen) {
+        drawer.classList.add('translate-x-full');
+        backdrop.classList.add('hidden');
+      } else {
+        drawer.classList.remove('translate-x-full');
+        backdrop.classList.remove('hidden');
+      }
+    }
+
+    function exportAtlasNotes() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(Array.from(savedCountryKeys)));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "worldly_atlas_bookmarks.json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast("Atlas study notes exported!");
+    }
+
+    // Quiz Interaction Logic
+    function handleQuizAnswer(button, isCorrect, explanation) {
+      const feedbackBox = document.getElementById('quizFeedbackBox');
+      const feedbackText = document.getElementById('quizFeedbackText');
+      const feedbackHeading = document.getElementById('quizFeedbackHeading');
+      const feedbackIcon = document.getElementById('quizFeedbackIcon');
+
+      // Reset options
+      document.querySelectorAll('.quiz-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-600', 'bg-error', 'text-white', 'border-emerald-400');
+        btn.classList.add('bg-white/10');
+      });
+
+      if (isCorrect) {
+        button.classList.remove('bg-white/10');
+        button.classList.add('bg-emerald-600', 'text-white', 'border-emerald-400');
+        feedbackHeading.textContent = "Accurate Answer! (+50 XP)";
+        feedbackHeading.className = "block font-title-md text-title-md text-emerald-800";
+        feedbackIcon.textContent = "verified";
+        feedbackIcon.className = "material-symbols-outlined text-emerald-700 text-[22px] shrink-0";
+      } else {
+        button.classList.remove('bg-white/10');
+        button.classList.add('bg-error', 'text-white');
+        feedbackHeading.textContent = "Not Quite - Check Atlas Context:";
+        feedbackHeading.className = "block font-title-md text-title-md text-error";
+        feedbackIcon.textContent = "help";
+        feedbackIcon.className = "material-symbols-outlined text-error text-[22px] shrink-0";
+      }
+
+      feedbackText.textContent = explanation;
+      feedbackBox.classList.remove('hidden');
+    }
+
+    // Bottom Navigation Bar Controller
+    function setNavTab(button, tabName) {
+      document.querySelectorAll('nav button').forEach(btn => {
+        btn.className = "flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-all";
+      });
+      button.className = "flex flex-col items-center justify-center bg-secondary-fixed text-on-secondary-fixed rounded-xl px-3 py-1.5 transition-all";
+
+      if (tabName === 'explore') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (tabName === 'compare') {
+        const comparator = document.querySelector('section:has(#compareTargetSelect)');
+        if (comparator) comparator.scrollIntoView({ behavior: 'smooth' });
+      } else if (tabName === 'quiz') {
+        const quizCard = document.querySelector('section:has(#quizOptionsContainer)');
+        if (quizCard) quizCard.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function shareCountryCard() {
+      if (navigator.share) {
+        navigator.share({
+          title: `WORLDLY Atlas - ${countryDatabase[currentCountryKey].name}`,
+          text: `Explore the demographic & geographic dossier for ${countryDatabase[currentCountryKey].name} on WORLDLY.`,
+          url: window.location.href
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        showToast("Dossier URL copied to clipboard!");
+      }
+    }
+
+    // Lightweight Toast Utility
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const msg = document.getElementById('toastMsg');
+      if (!toast || !msg) return;
+
+      msg.textContent = message;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2400);
+    }
+
+    // Initial Execution
+    document.addEventListener('DOMContentLoaded', () => {
+      selectCountry('japan');
+      updateBookmarkHeaderBadge();
+    });
+  </script>
+</body></html>
